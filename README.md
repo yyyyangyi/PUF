@@ -156,6 +156,8 @@ python render_predictions_voxel.py --dataset_path $DATA_3DSSG --scene <scan_id> 
     --predictions ../output/scannet/predictions_voxel_....pkl --camera view.json
 ```
 
+<p align="center"><img width="1000" alt="Visualization on ReplicaSSG" src="readme_figs/sg_vis_replica.png"></p>
+
 Because nodes and edges carry full Dirichlet distributions, per-node and per-edge
 predictive uncertainty can be read out as the normalized entropy `H / H_max`:
 
@@ -180,3 +182,13 @@ If you find our research useful, please consider citing:
   year={2026}
 }
 ```
+
+
+## Acknowledgements and References
+
+We would like to thank the authors of the following repositories, based on which we built PUF:
+
+- [FROSS](https://github.com/Howardkhh/FROSS) — base framework and ReplicaSSG
+- [OnlineAnySeg](https://github.com/yjtang249/OnlineAnySeg) — the voxel backend
+- [RT-DETR](https://github.com/lyuwenyu/RT-DETR) / [EGTR](https://github.com/naver-ai/egtr) — 2D scene graph model
+- [3RScan](https://github.com/WaldJohannaU/3RScan) / [3DSSG](https://3dssg.github.io/) / [Replica](https://github.com/facebookresearch/Replica-Dataset) — datasets
