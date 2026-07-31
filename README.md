@@ -96,8 +96,7 @@ not used there; PUF still improves over FROSS on all metrics without it.
 
 `main.py` writes a `.pkl` prediction file whose name encodes the configuration, e.g.
 `predictions_gaussian_obj0.7_rel10_hell0.85_kfnone_test_gtpose_puf_birth0.4_jsdsig0.3.pkl`
-(`gaussian` → `voxel` for the voxel backend). Evaluation uses the unmodified FROSS
-protocol:
+(`gaussian` → `voxel` for the voxel backend). Evaluation uses the following scripts:
 
 ```bash
 # 3DSSG
@@ -143,8 +142,8 @@ prior) and hyperparameter sensitivity are reported in the paper.
 
 ## Visualization and Uncertainty
 
-Per-frame 2D/3D visualization works as in FROSS via `--visualize_folder` plus
-`Merging/Visualization/render.sh`. Additional scripts for the PUF outputs:
+Per-frame 2D/3D visualization works via `--visualize_folder` plus
+`Merging/Visualization/render.sh`. Scripts for the PUF outputs:
 
 ```bash
 cd Merging/Visualization
