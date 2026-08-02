@@ -41,8 +41,6 @@ All commands are run from the `Merging/` directory. `--use_puf` enables PUF's pr
 `$ARTIFACT_3RSCAN` / `$ARTIFACT_VG` to the exported RT-DETR-EGTR artifact paths used by
 FROSS, and `$DATA_3DSSG` / `$DATA_REPLICA` to the dataset roots.
 
-### Gaussian backend
-
 ```bash
 cd Merging
 
@@ -55,24 +53,6 @@ python main.py --artifact_path $ARTIFACT_3RSCAN --dataset_path $DATA_3DSSG --use
 python main.py --artifact_path $ARTIFACT_VG --dataset_path $DATA_REPLICA \
     --label_categories replica --use_puf \
     --lambda_birth 0.4 --likelihood_sigma_jsd 0.3 --beta_min 0.05
-```
-
-### Voxel backend
-
-Add `--use_voxel` (requires `--use_puf`). Detections are voxelized after depth
-filtering and associated by containment score.
-
-```bash
-# 3DSSG 
-python main.py --artifact_path $ARTIFACT_3RSCAN --dataset_path $DATA_3DSSG \
-    --use_puf --use_voxel \
-    --voxel_size 0.02 --lambda_birth 0.3 --likelihood_sigma_jsd 0.2 --beta_min 0.05 \
-    --use_spatial_prior --class_prior_path ../Scripts/dataset/prior/3rscan_prior_scaled.npz
-
-# ReplicaSSG 
-python main.py --artifact_path $ARTIFACT_VG --dataset_path $DATA_REPLICA \
-    --label_categories replica --use_puf --use_voxel \
-    --voxel_size 0.02 --lambda_birth 0.4 --likelihood_sigma_jsd 0.4 --beta_min 0.05
 ```
 
 ### Relationship prior (3DSSG only)
@@ -95,8 +75,8 @@ not used there; PUF still improves over FROSS on all metrics without it.
 ## Evaluate
 
 `main.py` writes a `.pkl` prediction file whose name encodes the configuration, e.g.
-`predictions_gaussian_obj0.7_rel10_hell0.85_kfnone_test_gtpose_puf_birth0.4_jsdsig0.3.pkl`
-(`gaussian` → `voxel` for the voxel backend). Evaluation uses the following scripts:
+`predictions_gaussian_obj0.7_rel10_hell0.85_kfnone_test_gtpose_puf_birth0.4_jsdsig0.3.pkl`. 
+Evaluation uses the following scripts:
 
 ```bash
 # 3DSSG
@@ -148,11 +128,9 @@ Per-frame 2D/3D visualization works via `--visualize_folder` plus
 ```bash
 cd Merging/Visualization
 
-# Render the final merged Gaussians (or voxels) from a saved Open3D camera view
+# Render the final merged results from a saved Open3D camera view
 python render_predictions.py --dataset_path $DATA_3DSSG --scene <scan_id> \
     --predictions ../output/scannet/predictions_gaussian_....pkl --camera view.json
-python render_predictions_voxel.py --dataset_path $DATA_3DSSG --scene <scan_id> \
-    --predictions ../output/scannet/predictions_voxel_....pkl --camera view.json
 ```
 
 <p align="center"><img width="1000" alt="Visualization on ReplicaSSG" src="readme_figs/sg_vis_replica.png"></p>
