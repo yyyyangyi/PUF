@@ -64,7 +64,7 @@ training). Precomputed files are shipped in `Scripts/dataset/prior/`; to regener
 ```bash
 python Scripts/dataset/compute_relation_prior.py \
     --path $DATA_3DSSG --label_categories scannet \
-    --output Scripts/dataset/prior/3rscan_prior_scaled.npz
+    --output Scripts/dataset/prior/3rscan_prior.npz
 ```
 
 The spatial factor `P_sp` is computed online from the 3D node centroids, so only the
