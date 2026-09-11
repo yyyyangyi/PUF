@@ -159,6 +159,8 @@ If you find our research useful, please consider citing:
 
 ## Acknowledgements and References
 
+We used Claude Code to aid implementation.
+
 We would like to thank the authors for their excellent work on the following repositories, based on which we built PUF:
 
 - [FROSS](https://github.com/Howardkhh/FROSS) — base framework and ReplicaSSG
