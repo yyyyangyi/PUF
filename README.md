@@ -17,10 +17,6 @@ Yi Yang, Myrna Castillo, Bodo Rosenhahn, Michael Ying Yang
 Online 3D scene graph generation builds a persistent, structured representation of a scene by incrementally fusing 2D observations into a global 3D graph. Existing online methods treat this fusion as a fully deterministic pipeline, where we identify three sources of uncertainty that are overlooked: observation, 2D model, and 3D representation. We propose **PUF**: a **P**lug-and-play, **U**ncertainty-aware, and training-free **F**usion framework. Scene graph node association is reformulated as a probabilistic likelihood over semantic and spatial factors, replacing binary accept/reject gates. Dirichlet evidence accumulation distributes class and relationship evidence across plausible candidates proportional to association likelihood. An optional class-conditional prior completes edges for sparsely or never co-observed object pairs. We instantiate PUF with both a 3D Gaussian and a 3D voxel backend and observe consistent improvements, demonstrating its ability to generalize across different representations.
 
 
-## TODO
-- [ ] Release code :clock9:
-
-
 ## Installation and Dataset Preparation
 
 PUF shares the environment, datasets and pretrained weights of [FROSS (ICCV 2025)](https://github.com/Howardkhh/FROSS). Please follow the
