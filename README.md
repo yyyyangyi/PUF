@@ -46,8 +46,8 @@ cd Merging
 
 # 3DSSG (full model, with relationship prior)
 python main.py --artifact_path $ARTIFACT_3RSCAN --dataset_path $DATA_3DSSG --use_puf \
-    --lambda_birth 0.4 --likelihood_sigma_jsd 0.3 --beta_min 0.05 \
-    --use_spatial_prior --class_prior_path ../Scripts/dataset/prior/3rscan_prior_scaled.npz
+    --lambda_birth 0.4 --likelihood_sigma_jsd 0.3 \
+    [--use_spatial_prior --class_prior_path ../Scripts/dataset/prior/3rscan_prior.npz]
 
 # ReplicaSSG (no prior: the dataset has no training split)
 python main.py --artifact_path $ARTIFACT_VG --dataset_path $DATA_REPLICA \
